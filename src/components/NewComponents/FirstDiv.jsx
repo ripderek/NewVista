@@ -8,7 +8,7 @@ export function FirstDiv() {
         className="grid !min-h-[30rem] "
         style={{
           backgroundImage:
-            "linear-gradient(to right, rgba(150,0,0,0.8), rgba(150,0,0,0.8)), url('/image/fondo.jpg')",
+            "linear-gradient(to right, rgba(150,0,0,0.8), rgba(150,0,0,0.8)), url('./image/fondo.jpg')",
         }}
       >
         {/* 
