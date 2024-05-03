@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   CursorArrowRaysIcon,
   HeartIcon,
@@ -24,17 +24,40 @@ import {
 } from "@material-tailwind/react";
 
 export function DocumentosElectronicos() {
+  const [numeroDocumento, setDocumento] = useState("");
+  const [inputValue, setInputValue] = useState("001-010-000000000");
+
+  const handleInputChange = (event) => {
+    const { value } = event.target;
+    const paddedValue = value.padStart(9, "0");
+    setDocumento(value);
+    const formattedValue = `001-010-${paddedValue.slice(-9)}`;
+    setInputValue(formattedValue);
+    console.log(formattedValue);
+  };
   return (
     <section className="py-14 ">
       <div className="container mx-auto mb-20 text-center px-9">
         <Typography variant="h2" color="blue-gray" className="">
           Buscar y Descargar Comprobantes Electrónicos
         </Typography>
-        <div className="w-full mt-5">
+        <div className="w-full mt-5 flex">
           <Input
-            label="Número de Factura:"
-            icon={<MagnifyingGlassIcon className="h-5 w-5 cursor-pointer" />}
+            label="Número de documento:"
+            value={numeroDocumento}
+            // onChange={(e) => setDocumento(e.target.value)}
+            onChange={handleInputChange}
           />
+          <Tooltip content="Buscar Documento">
+            <a
+              href={`https://superdespensapolita.com/DocumentosElectronicos/Facturas/${inputValue}.pdf`}
+              target="_blank"
+            >
+              <Button color="blue" className="ml-4">
+                <MagnifyingGlassIcon className="h-4 w-4 cursor-pointer " />
+              </Button>
+            </a>
+          </Tooltip>
         </div>
         {/* 
         <Typography

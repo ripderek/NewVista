@@ -29,7 +29,7 @@ export function FirstDiv() {
           <Image
             width={900}
             height={200}
-            src="/image/PolitaPNG5.png"
+            src="./image/PolitaPNG5.png"
             alt="team work"
             className="col-span-1 my-20 h-full max-h-[60rem] -translate-y-32 md:max-h-[350rem] lg:my-0 lg:ml-auto lg:max-h-[40rem] lg:translate-y-0"
           />
